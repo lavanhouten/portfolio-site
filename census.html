@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>QMSS</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">Predictive Analysis with Census Data</h1>
+							<div width="100%" style="display: flex; justify-content: space-evenly;">
+								<span class="image"><img src="images/ageByIncome.png" alt="" width="80%" /></span>
+								<div style="display: flex; justify-content: center;  align-items: center;">
+									<a href="project2.html" class="button" font-size="1em">View Code</a>
+								</div>
+							</div>
+							<div style="background-color:#3e2e88; margin-top: 2em; padding:2em; border-radius: 1em">
+								<h2>
+                                    Introduction
+                                </h2>
+								<p>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Using census data, I used statsmodels and scikit learn to predict which income
+								class an individual is a part of, >50k or <=50k. Other packages that were used include
+								pandas, numpy, seaborn, and matplotlib. The dataset contains data points about each
+								individual including education level, working class, marital status, occupation,
+								relationship status, race, sex, capital gain, capital loss, hours worked per week, native
+								country, and age.
+								</p>
+								<h2>
+                                    Exploratory Analysis
+                                </h2>
+								<p>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I began the exploratory process of deciding which data points would be most
+								valuable to use in modeling by breaking down which of the data points in the dataset
+								would be the most impactful for having a high income, and I determined three important
+								determining factors would be age, hours worked per week, and education level. Then I
+								investigated and found my intuition to be true according to the data; the mean age of
+								people in the higher income class was high, the mean amount of hours worked per
+								week in the higher income class was higher, and the mean education level of people in
+								the higher income class was also higher.
+								</p>
+								<h2>
+                                    Predictive Modelling
+                                </h2>
+								<p>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Then I created a statsmodels logistic regression model and found that: For an
+								increase in the age of a person by 1, the odds that the person earns more than 50k is
+								1.048028 times as large as the odds that they do not earn more than 50k. For an
+								increase in the hours worked per week of a person by 1, the odds that the person earns
+								more than 50k is 1.043762 times as large as the odds that they do not earn more than
+								50k. For an increase in the education level of a person by 1, where Preschool
+								completion is a value of 1 and a Doctorate degree is a value of 16, the odds that the
+								person earns more than 50k is 1.412505 times as large as the odds that they do not
+								earn more than 50k.
+								</p>
+								<p>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In order to test the predictive ability of these data points, I created a scikit learn
+								model with the same data points where I separated the data into training and testing
+								datasets with 80% of the data in the training dataset and 20% in the testing dataset. The
+								real odds of each variable in this model, trained with 80% of the original data, were
+								essentially the same as the real odds of each variable in the statsmodels model from
+								above. Using education level number, age, and hours worked per week as explanatory
+								variables, this model was 78.78% accurate in predicting the chances that an individual
+								earns more than 50k per year or not. Its precision was 61.58%, recall score was 30%,
+								and F1 score was 40.38%. These results indicated to me that the model was failing to
+								accurately predict positive values, those that earn more than 50k. Combined with
+								analysis of a confusion matrix of the results of the model, it appeared that it was over
+								predicting the number of people who earn less than or equal to 50k and predicting very
+								few of the inputs to earn more than 50k at all. The cause of this sort of overprediction
+								could be due to the fact that far more of the training data points earned less than or
+								equal to 50k rather than more. This observation is further reflected in the accuracy
+								score that is much higher than the precision, recall, and F1 scores due to the fact that it
+								is heavily influenced positively by the high number of true negative predictions. This
+								issue could be fixed by training the model on a dataset more evenly split between the
+								income classes of >50k and <=50k resulting in a model that takes into account the 50k.
+								</p>
+								<h2>
+                                    Conclusions
+                                </h2>
+								<p>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Using both statsmodels and sklearn, I created a model that predicts whether or
+								not an individual earns more than 50k or not. This was done through an exploratory
+								data analysis stage where I determined that education level, age, and hours worked per
+								week were the features that were the most impactful of those available, so I created a
+								statsmodels model with them and found the real odds coefficients for each variable.
+								Then I made a sklearn model with the same explanatory variables that I trained and
+								tested, finding that the model predicted a lot of false negatives due to the fact that a lot
+								of the training data had a lot more data points that had an income class of less than or
+								equal to 50k. In the end, the model was relatively accurate but could be improved by
+								different training data and possibly different explanatory variables.
+								</p>
+							</div>
+						</div>
+						<div width="100%" style="text-align: center;">
+                            <a href="socialscience.html" class="button">Return to Previous Page</a>
+                        </div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

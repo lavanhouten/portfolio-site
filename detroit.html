@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>QMSS</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">Crime in Detroit</h1>
+							<div width="100%" style="display: flex; justify-content: space-evenly;">
+								<span class="image"><img src="images/detroitCrimeMap.png" alt="" width="80%" /></span>
+								<div style="display: flex; justify-content: center;  align-items: center;">
+									<a href="project1.html" class="button" font-size="1em">View Code</a>
+								</div>
+							</div>
+							<div style="background-color:#3e2e88; margin-top: 2em; padding:2em; border-radius: 1em">
+								<h2>
+                                    Introduction
+                                </h2>
+								<p>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In order to analyze the crime rates and how they differ from place to place throughout
+								the city of Detroit in 2021, first we needed to stratify the data by our two subdivisions of
+								the city: zip code and neighborhood. This was done by counting the number of crimes
+								by the given zip code value and neighborhood value for each crime. Then we displayed
+								these values on a map, with red representing high crime and green representing low. In
+								order to see if more robberies occurred near grocery stores specifically, we used a
+								dataset of all the locations of grocery stores in the city and used st_buffer to find all of
+								the crimes that occurred within a 0.5 mile radius and within a 1 mile radius. This allowed
+								us to analyze the crime rate around grocery stores specifically.
+								</p>
+								<h2>
+                                    Crime Location Findings
+                                </h2>
+								<p>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;From the beginning, it was defined that high rates of crime consisted of more than 1200
+								crimes in a neighborhood in 2021 and more than 5000 crimes in a given zip code. Low
+								rates of crime consisted of less than 100 crimes in a given neighborhood and less than
+								100 crimes in a zip code. Using these parameters as guidance, it was found that there
+								were certain areas of the city that had distinctly higher rates of crime by these
+								standards, specifically the far eastern and far western portions of the city. Zip codes like
+								48228 and 48224 had the highest rates of crime throughout the city. The neighborhoods
+								with the lowest rates of crime were generally located in the south and in a ring around
+								the center of the city. Examples of neighborhoods located in those areas were Belle Isle
+								and Carbon Works. These findings indicate a difference in police coverage and
+								potentially economic welfare. It is known locally that the outer reaches of Detroit are the
+								most dangerous and are also the most impoverished, which is supported by this data.
+								</p>
+								<h2>
+                                    Grocery Store Robbery Findings
+                                </h2>
+								<p>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;When analyzing whether or not more robberies occurred near grocery stores, we
+								created buffers around each grocery store in Detroit and mapped them. These buffers
+								had radii of 0.5 and 1 mile. This enabled me to count the number of robberies that
+								occurred nearby to grocery stores at two different levels and compare them.								
+								</p>
+								<p>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The area of a circle with a radius half the size of another circle is 1/4th the size of
+								the larger circle. Thus, if the presence of the grocery store is indicative of more
+								opportunities for robbery, the mean amount of robberies in the 0.5 radius buffer should
+								be larger than ¼ th the mean amount of robberies in the larger radius. The mean for the
+								0.5 mile circle is 9.622 and the 1 mile circle is 29.81. This indicates that the amount of
+								robberies that occur closer to grocery stores is higher than the amount of robberies that
+								occur elsewhere. As expected, there is a higher spread in the IQR and standard
+								deviation of the number of crimes that occur in a 1 mile radius when compared to the
+								0.5 mile radius, as there is higher variance in the potential areas within such a larger
+								radius circle. All this makes sense as grocery stores are obvious targets for robberies as
+								they offer a large variety of essential goods, offering things that desperate people would
+								be willing to rob in order to survive. Thus, the observation that more robberies occur in
+								their areas makes sense.								
+								</p>
+								<h2>
+									Conclusions
+                                </h2>
+								<p>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To create this report, I manipulated geospatial data on crimes, neighborhoods, zip
+								codes, and grocery stores in Detroit, Michigan in order to investigate the location and
+								nature of crimes within the city. Using neighborhood and zip code data associated with
+								each crime, I was able to discover which zip codes and neighborhoods were the most
+								crime ridden and which were the safest. The most dangerous zip codes were located on
+								the edges of the city whereas the safest zip codes were located in a ring around the
+								center of the city. Using the location of robberies throughout the city and the location of
+								grocery stores, I was able to investigate whether or not robberies were more likely to
+								occur in areas where grocery stores were located. There were more robberies in the
+								areas where grocery stores were. I noticed that the data for the locations of crimes
+								could be derived from the location of each crime given by coordinates and by the given
+								zip code and neighborhood associated with each crime. This could potentially cause
+								some variance in the interpretation of the data if these don’t line up, but I used the given
+								zip code and neighborhood associated with each crime.								
+								</p>
+							</div>
+						</div>
+						<div width="100%" style="text-align: center;">
+                            <a href="socialscience.html" class="button">Return to Previous Page</a>
+                        </div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
